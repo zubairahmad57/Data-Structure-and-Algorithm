@@ -1,4 +1,6 @@
- class Solution {
+//Using DFS : O(m+n)
+
+class Solution {
     int count = 1;
 
     void dfs(List<List<Integer>> rooms, int u, boolean[] visited) {
