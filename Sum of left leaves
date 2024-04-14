@@ -1,0 +1,20 @@
+ //Approach-2 (without parentpointer, only using a flag)
+//T.C : O(n)
+//S.C : O(1) Auxiiliary Space and O(depth of tree) recursion system stack space
+class Solution {
+    public int solve(TreeNode curr, boolean isLeft) {
+        if (curr == null) {
+            return 0;
+        }
+
+        if (curr.left == null && curr.right == null && isLeft) {
+            return curr.val;
+        }
+
+        return solve(curr.left, true) + solve(curr.right, false);
+    }
+
+    public int sumOfLeftLeaves(TreeNode root) {
+        return solve(root, false);
+    }
+}
