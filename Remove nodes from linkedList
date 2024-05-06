@@ -1,0 +1,20 @@
+//Approach-2 (Using Recursion - instead of stack, use system's stack)
+//T.C : O(n)
+//S.C : O(n) system stack
+class Solution {
+    public ListNode removeNodes(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode nextNode = removeNodes(head.next);
+
+        if (head.val < nextNode.val) {
+            head = null;
+            return nextNode;
+        }
+
+        head.next = nextNode;
+        return head;
+    }
+}
